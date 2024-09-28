@@ -90,19 +90,19 @@ fi
 
 ### -------- Preparation -------- ###
 
+# Creating directories
+mkdir -p /opt/stacks /opt/dockge 
+
+# Navigate to the working directory
+cd /opt/dockge
+
 curl "$dockge_compose_url" --output compose.yaml
 
 # Start the panel on localhost
 find_and_replace $dockge_compose "5001:5001" "127.0.0.1:5001:5001"
 
-# Creating directories
-mkdir -p /opt/stacks /opt/dockge 
-
 # Copy the edited file to the working directory
 cp ~/compose.yaml /opt/dockge
-
-# Navigate to the working directory
-cd /opt/dockge
 
 # Let's go
 docker compose up -d
