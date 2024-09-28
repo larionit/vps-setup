@@ -3,7 +3,7 @@
 ### ======== Settings ======== ###
 
 dockge_compose=compose.yaml
-dockge_compose_url=https://dockge.kuma.pet/compose.yaml?port=5001&stacksPath=%2Fopt%2Fstacks
+dockge_compose_url="https://dockge.kuma.pet/compose.yaml?port=5001&stacksPath=%2Fopt%2Fstacks"
 
 # Link to this script (needed in case of privilege escalation via sudo)
 script_url=https://raw.githubusercontent.com/larionit/vps-setup/refs/heads/main/vps-setup-dockge.sh
@@ -108,5 +108,4 @@ cp ~/compose.yaml /opt/dockge
 docker compose up -d
 
 # Print message to console
-clear
 docker ps
