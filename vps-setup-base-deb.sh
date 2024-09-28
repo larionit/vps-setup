@@ -87,6 +87,8 @@ function message_at_the_end {
 pub_ipv4=$(dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com)
 servIp=$(echo "$pub_ipv4" | tr -d '"')
 
+clear
+
 # Getting new user name
 read_user_input "New user -> login: " "user_name"
 
