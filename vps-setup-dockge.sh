@@ -24,7 +24,7 @@ function elevate {
 # Privilege escalation function (if the script is run with a command like: "bash <(curl https://domain.name/script.sh)")
 function elevate_curl {
     if [[ "$EUID" -ne 0 ]]; then
-        echo "This script must be run with superuser privileges. Trying to elevate privileges with sudo."
+        echo "[Started using curl] This script must be run with superuser privileges. Trying to elevate privileges with sudo."
         temp_script=$(mktemp)
         curl -fsSL "$script_url" -o "$temp_script"
         exec sudo bash "$temp_script" "$@"
@@ -87,18 +87,6 @@ if [[ "$script_dir" = *"/proc"* ]]; then
 else
     elevate
 fi
-
-echo
-echo "script_dir = $script_dir"
-echo
-echo "script_name = $script_name"
-echo
-echo "script_path = $script_path"
-echo
-read -p "Press Enter to contine: "
-
-# Start logging
-exec > >(tee -a "$logfile_path") 2>&1
 
 ### -------- Preparation -------- ###
 
